@@ -1,1 +1,6 @@
 <h2>マイページ</h2>
+<div><%= @user.username %>さん</div>
+<div>email: <%= @user.email %></div>
+<div>created_at: <%= @user.created_at %></div>
+<%= link_to "sign_out", destroy_user_session_path %>
+<%= link_to "edit", edit_user_registration_path %>
