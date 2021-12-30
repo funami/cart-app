@@ -28,7 +28,7 @@ Things you may want to cover:
 username を追加
 
 ```
-rails generate devise:views -v registrations
+rails generate devise:views -v registrations,
 rails g migration add_username_to_users username:string
 rails db:migrate
 ```

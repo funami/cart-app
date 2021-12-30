@@ -1,0 +1,53 @@
+// https://github.com/mkhairi/material-sass
+@import "material";
+@import "https://fonts.googleapis.com/icon?family=Material+Icons";
+
+.notice {
+  color: green;
+}
+.alert {
+  color: red;
+}
+
+.field {
+  @extend .form-group;
+}
+
+.field input {
+  @extend .form-control;
+}
+.field p {
+  padding: 5px;
+  font-size: 1.5em;
+}
+.field p {
+  padding: 5px;
+  font-size: 1.5em;
+}
+.link a {
+  @extend .btn.btn-primary;
+}
+.actions input {
+  @extend .btn.btn-primary;
+}
+.link {
+  float: left;
+  margin: 3px;
+}
+
+.deviceContainer {
+  width: 90%;
+  max-width: 420px;
+  // position: absolute;
+  // top: 50%;
+  // left: 50%;
+  // transform: translate(-50%, -50%);
+  // -webkit-transform: translate(-50%, -50%);
+  // -ms-transform: translate(-50%, -50%);
+}
+.links {
+  padding-top: 50px;
+}
+.destroy {
+  @extend .btn.btn-danger;
+}
