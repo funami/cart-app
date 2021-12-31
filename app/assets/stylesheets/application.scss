@@ -30,24 +30,16 @@
 .actions input {
   @extend .btn, .btn-primary;
 }
-.link {
-  float: left;
-  margin: 3px;
-}
-
 .deviceContainer {
   width: 90%;
   max-width: 420px;
-  // position: absolute;
-  // top: 50%;
-  // left: 50%;
-  // transform: translate(-50%, -50%);
-  // -webkit-transform: translate(-50%, -50%);
-  // -ms-transform: translate(-50%, -50%);
 }
 .links {
   padding-top: 50px;
 }
 .destroy {
   @extend .btn, .btn-danger;
+}
+form {
+  margin-bottom: 30px;
 }
