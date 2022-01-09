@@ -12,8 +12,8 @@ class ApplicationController < ActionController::Base
 
   def store_jwt
     if current_user
-      cookies[:firebase_custom_token] = {
-        value: current_user.firebase_custom_token, path: "/"
+      cookies[:cart_user_info] = {
+        value: current_user.user_info.to_json, path: "/", domain: ".a.com"
       }
     else
       cookies.delete :firebase_custom_token

@@ -4,13 +4,13 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  def firebase_custom_token
-    create_custom_token(id)
+  def user_info
+    { id: id, username: username, token: custom_token(id) }
   end
 
   private
 
-  def create_custom_token(uid)
+  def custom_token(uid)
     service_account_email = Rails.application.credentials.config[:firebase_service_account_email]
     private_key = OpenSSL::PKey::RSA.new Rails.application.credentials.config[:firebase_private_key]
     now_seconds = Time.now.to_i
