@@ -1,11 +1,10 @@
 class TokenController < ApplicationController
+  after_action :store_jwt
   def index
     if current_user
-      render status: 200, json: {
-        id: current_user.id,
-        username: current_user.username,
-        firebase_custom_token: current_user.firebase_custom_token
-      }
+      store_jwt
+      response.headers['Access-Control-Allow-Credentials'] = true
+      render status: 200, json: current_user.user_info
     else
       response_unauthorized
     end

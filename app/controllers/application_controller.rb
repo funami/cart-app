@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :store_jwt, if: :devise_controller?
+  after_action :store_jwt, if: :devise_controller? # TODO: ここは before_action or after_actionのどちらにすべきかよう確認
 
   protected
 
@@ -11,12 +11,14 @@ class ApplicationController < ActionController::Base
   end
 
   def store_jwt
-    if current_user
-      cookies[:cart_user_info] = {
-        value: current_user.user_info.to_json, path: "/", domain: ".a.com"
-      }
-    else
-      cookies.delete :firebase_custom_token
-    end
+    cookies[:cart_user_info] = if current_user
+                                 {
+                                   value: current_user.user_info.to_json, path: "/", domain: :all
+                                 }
+                               else
+                                 {
+                                   value: "", path: "/", domain: :all, expires: Time.at(0)
+                                 }
+                               end
   end
 end

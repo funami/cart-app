@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   def user_info
-    { id: id, username: username, token: custom_token(id) }
+    { id: id.to_s, username: username, token: custom_token(id) }
   end
 
   private

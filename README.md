@@ -41,3 +41,5 @@ app/views/devise/registrations/(edit|new).html.erb に追加
     <%= f.text_field :username %>
   </div>
 ```
+
+session_store.rb にて、domain: all を指定して、サブドメインでも認証可能にする
