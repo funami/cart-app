@@ -16,8 +16,8 @@ class ApplicationController < ActionController::Base
                                    value: current_user.user_info.to_json, path: "/", domain: :all
                                  }
                                else
-                                 {
-                                   value: "", path: "/", domain: :all, expires: Time.at(0)
+                                 { # cookieを削除するとsafariの場合は、サブドメインであるshop側のcookieが残ってしまうので、削除ではなくて、更新とした
+                                   value: "{}", path: "/", domain: :all
                                  }
                                end
   end
