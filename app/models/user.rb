@@ -18,7 +18,7 @@ class User < ApplicationRecord
                 sub: service_account_email,
                 aud: "https://identitytoolkit.googleapis.com/google.identity.identitytoolkit.v1.IdentityToolkit",
                 iat: now_seconds,
-                exp: now_seconds + (60 * 60), # Maximum expiration time is one hour
+                exp: now_seconds + 60, # Maximum expiration time is one minits
                 uid: uid }
     JWT.encode payload, private_key, "RS256"
   end
