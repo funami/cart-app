@@ -77,5 +77,9 @@ Rails.application.configure do
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
 
+  # local開発時に proxyサーバー経由するため hostsだとport変換できないので、いったんこれで.. でも dockerでなんかもう少しスマートにできるかも
+  # cart.localhost, shop.localhostとかできたら嬉しい
   config.hosts << "cart.a.com"
+
+  config.x.shop_host = "shop.a.com"
 end

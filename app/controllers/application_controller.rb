@@ -1,8 +1,13 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   after_action :store_jwt, if: :devise_controller? # TODO: ここは before_action or after_actionのどちらにすべきかよう確認
+  before_action :load_config
 
   protected
+
+  def load_config
+    @shop_host = Rails.configuration.x.shop_host
+  end
 
   def configure_permitted_parameters
     added_attrs = %i[username email password password_confirmation remember_me]
