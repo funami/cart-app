@@ -15,7 +15,21 @@
   </head>
   <body>
     <div class="header">
-      <div class="shop_link"><%= link_to "SHOP", "//" +Rails.configuration.x.shop_host%></div>
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <span class="shop_link"><%= link_to "HOME", "//" + Rails.configuration.x.shop_host %></span>
+            <span class="shop_link"><%= link_to "ITEMS", "//" + Rails.configuration.x.shop_host + "/items" %></span>
+          </div>
+          <div class="col text-right">
+            <% if current_user %>
+              <%= current_user.username %>さん
+            <% else %>
+              <%= link_to "ログイン", :new_user_session %>
+            <% end %>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="container">
       <div>
